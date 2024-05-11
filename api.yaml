@@ -1,0 +1,69 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - url: http://localhost:3000/
+    description:  Local server 
+  - url: https://shopkeeper.onrender.com/
+    description:  Pre Production server
+info:
+  version: "1.0.0"
+  title: HR Portal
+  description: The API for the EatBacon IOT project
+paths:
+  /auth/api/admin/login:
+   post:
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "pr@gmail.com"
+                password:
+                  type: string
+                  example: "secret..."
+      responses: 
+        '200':
+          description: OK
+  /api/admin/add-user:
+    post:
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+                email:
+                  type: string
+                  example: "pr@gmail.com"
+                firstName:
+                  type: string
+                lastName:
+                 type: string
+                password:
+                  type: string
+                  example: "secret"
+      responses: 
+        '200':
+          description: OK
+      responses: 
+        '200':
+          description: OK
+
+  /api/admin/users:
+    get:
+      tags:
+        - Admin
+      responses: 
+        '200':
+          description: OK
