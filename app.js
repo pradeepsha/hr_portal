@@ -50,11 +50,11 @@ app.listen(port,()=>{
     console.log(`Server running on port ${port}`);
 })
 
-// app.get('*',(req,res)=>{
-//     res.send('Hello, World!\n Pradeep');
-// })
+app.get('*',(req,res)=>{
+    res.send('Hello, World!\n Pradeep kumar');
+})
 
 
-app.get('*', (req, res, next) => {
-    res.sendFile(path.join(__dirname + '/angular/browser/index.html'));
-});
+// app.get('*', (req, res, next) => {
+//     res.sendFile(path.join(__dirname + '/angular/browser/index.html'));
+// });
