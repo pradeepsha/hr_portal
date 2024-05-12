@@ -3,14 +3,14 @@ servers:
   # Added by API Auto Mocking Plugin
   - url: http://localhost:3000/
     description:  Local server 
-  - url: https://shopkeeper.onrender.com/
+  - url: https://hr-portal-nd68.onrender.com/
     description:  Pre Production server
 info:
   version: "1.0.0"
   title: HR Portal
-  description: The API for the EatBacon IOT project
+  description: The API for the  HR Portal
 paths:
-  /auth/api/admin/login:
+  /auth/api/employee/login:
    post:
       tags:
         - Auth

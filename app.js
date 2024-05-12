@@ -1,6 +1,7 @@
 let express = require('express');
 var cors = require('cors');
 const validator = require("express-validator");
+var path = require('path');
 
 require('./config/database.js')
 
@@ -30,7 +31,9 @@ app.use('/api/admin/', adminRouter);
 
 // Enable CORS for all requests
 app.use(cors());
-
+app.use(express.static(path.join(__dirname, 'angular/browser')));
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // If you want to restrict CORS to specific origins, you can pass configuration options to the cors function.
 // For example, to allow requests from http://example.com, you can specify:
@@ -47,6 +50,11 @@ app.listen(port,()=>{
     console.log(`Server running on port ${port}`);
 })
 
-app.get('*',(req,res)=>{
-    res.send('Hello, World!\n Pradeep');
-})
+// app.get('*',(req,res)=>{
+//     res.send('Hello, World!\n Pradeep');
+// })
+
+
+app.get('*', (req, res, next) => {
+    res.sendFile(path.join(__dirname + '/angular/browser/index.html'));
+});
