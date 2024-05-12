@@ -30,10 +30,10 @@ paths:
       responses: 
         '200':
           description: OK
-  /api/admin/add-user:
+  /auth/api/employee/sign-up:
     post:
       tags:
-        - Admin
+        - Auth
       requestBody:
         required: true
         content:
@@ -60,10 +60,10 @@ paths:
         '200':
           description: OK
 
-  /api/admin/users:
+  /api/employee-list:
     get:
       tags:
-        - Admin
+        - Employee
       responses: 
         '200':
           description: OK

@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({
     limit: '2048mb', extended: true
   }));
 
+  app.use(cors());
+
 
   const { swaggerServe, swaggerSetup } = require('./config/swagger.config.js')  
   app.use("/api-docs", swaggerServe, swaggerSetup); 
@@ -30,7 +32,7 @@ app.use('/api/admin/', adminRouter);
 
 
 // Enable CORS for all requests
-app.use(cors());
+
 app.use(express.static(path.join(__dirname, 'angular/browser')));
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -50,11 +52,11 @@ app.listen(port,()=>{
     console.log(`Server running on port ${port}`);
 })
 
-app.get('*',(req,res)=>{
-    res.send('Hello, World!\n Pradeep kumar');
-})
+// app.get('*',(req,res)=>{
+//     res.send('Hello, World!\n Pradeep kumar');
+// })
 
 
-// app.get('*', (req, res, next) => {
-//     res.sendFile(path.join(__dirname + '/angular/browser/index.html'));
-// });
+app.get('*', (req, res, next) => {
+    res.sendFile(path.join(__dirname + '/angular/browser/index.html'));
+});

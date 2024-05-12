@@ -6,7 +6,7 @@ const Route = express.Router();
 const ApiAuth = require("../controllers/api/auth");
 /* End Controllers */
 /* Api Auth User Route*/
-Route.post("/api/employee/login", ApiAuth.postLogin);
+Route.post("/api/employee/login",ApiAuth.validateEmployeeLogin(), ApiAuth.postLogin);
 Route.post("/api/employee/sign-up",ApiAuth.validateEmployeeSignUp(), ApiAuth.postEmployeeSignUp)
 
 Route.post("/api/admin/login", ApiAuth.validateAdminLogin(),  ApiAuth.postAdminLogin);

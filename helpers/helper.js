@@ -18,28 +18,6 @@ class Helpers {
         });
     }
 
-    // getSuccesMessage(res, data = null, extras = null) {
-    //     // res.status(200).json({
-    //     //     "status": "success",
-    //     //     "response": data ? data : "Request process succesfully",
-    //     // });
-
-    //     let response = {
-    //         status: 200,
-    //         response: data ? data : "Request process successfully",
-    //     }
-
-    //     if (extras) {
-    //         response = {
-    //             ...response,
-    //             ...extras
-    //         }
-    //     }
-
-    //     res.status(200).json(response);
-
-    // }
-
 
     getSuccessMessage([req, res], data = null, customObj = null) {
         let response = {
