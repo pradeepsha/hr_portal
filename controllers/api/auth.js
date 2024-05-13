@@ -12,6 +12,7 @@ const bcrypt = require('bcrypt');
 
 /* Models*/
 const EmployeeModel = require('../../models/employee .model');
+const EmployeeSalaryModel = require('../../models/employee.salary.model');
 const AdminModel = require('../../models/admin.model')
 /* End Models*/
 
@@ -115,6 +116,35 @@ class Auth {
 
             return Helper.getErrorMessage([req, res], error.message);
         }
+    }
+
+
+    async postAddSalary(req, res) {
+        try {
+    
+            const body = _.pick(req.body, [ "net_pay", "total_detuction","basic_salary","email","employee_id"]);
+    
+            // await EmployeeModel.findByIdAndUpdate(checkUser._id, body, { new: true })
+            new EmployeeSalaryModel(req.body).save()
+            const checkUser = await EmployeeSalaryModel.find({ email: body.email });
+ 
+            return Helper.getSuccessMessage([req, res], checkUser);
+        } catch (error) {
+
+            return Helper.getErrorMessage([req, res], error.message);
+        }
+    }
+
+
+    async employeList(req,res){
+
+        try {
+            const employee = await EmployeeSalaryModel.find();
+            return Helper.getSuccessMessage([req, res], employee);
+
+        } catch (error) {
+            return Helper.getErrorMessage([req, res], error.message);
+       }
     }
     
 

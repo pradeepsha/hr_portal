@@ -11,6 +11,7 @@ const {
     VERIFICATION_FAILED,
 } = constants.userStatus
 let Employee = new Schema({
+
     firstName: {
         type: String,
         index: true,
@@ -21,7 +22,11 @@ let Employee = new Schema({
         index: true,
         default: null
     },
-    avatar: {
+    net_pay: {
+        type: String,
+        default: null
+    },
+    total_detuction: {
         type: String,
         default: null
     },
@@ -33,7 +38,7 @@ let Employee = new Schema({
         type: String,
         default: null
     },
-    pin: {
+    basic_salary: {
         type: String,
         default: null
     },

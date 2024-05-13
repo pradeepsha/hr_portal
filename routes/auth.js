@@ -9,6 +9,9 @@ const ApiAuth = require("../controllers/api/auth");
 Route.post("/api/employee/login",ApiAuth.validateEmployeeLogin(), ApiAuth.postLogin);
 Route.post("/api/employee/sign-up",ApiAuth.validateEmployeeSignUp(), ApiAuth.postEmployeeSignUp)
 
+Route.post("/api/employee/add-salary", ApiAuth.postAddSalary)
+Route.get("/api/employee/list", ApiAuth.employeList)
+
 Route.post("/api/admin/login", ApiAuth.validateAdminLogin(),  ApiAuth.postAdminLogin);
 Route.post("/api/admin/register",ApiAuth.validateAdminRegister(), ApiAuth.postAdminRegister)
 /* End Admin Auth Routes */
